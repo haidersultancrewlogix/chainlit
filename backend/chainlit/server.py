@@ -423,6 +423,8 @@ def _get_auth_response(access_token: str, redirect_to_callback: bool) -> Respons
     """Get the redirect params for the OAuth callback."""
 
     response_dict = _get_response_dict(access_token)
+    
+    response_dict['access_token'] = access_token
 
     if redirect_to_callback:
         root_path = os.environ.get("CHAINLIT_ROOT_PATH", "")
